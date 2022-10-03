@@ -18,14 +18,14 @@ char GetInputs(char player){
         // These if and else statements verrify that the user put in a number rather than a character or letter. If they didn't put a 
         //number then it will run through the loop again asking the user for a number.
         if(choice == '1' || choice == '2' || choice == '3' || choice == '4' || choice == '5' || choice == '6' || choice == '7' ||
-        choice == '8' || choice == '9'){
+        choice == '8' || choice == '9' || choice == 'q'){
             correctValue = true;
         }
         else{
             correctValue = false;
         }
         if (correctValue == false){
-            cout << choice << "is not a correct value. ";
+            cout << choice << "is not a correct value." << endl;
         }
 
     }while(correctValue = false);
