@@ -60,6 +60,8 @@ int main(){
     bool win = false;
     
     Board The_board;
+
+    Board * The_board01 = new Board();
     The_board.CreateBoard();
 
     char player = 'x';
@@ -82,6 +84,8 @@ int main(){
         }
         win = The_board.DetermineWinner();        
     }while(win == false);
+
+    delete The_board01;
 
     cout << "Congratulations player" << player << "! You won!" << endl;
     return 0;
