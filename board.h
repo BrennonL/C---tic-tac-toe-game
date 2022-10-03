@@ -11,15 +11,6 @@ class Board{
             {'7','|', '8', '|', '9'}
         };
 
-        // string board[5][5] = {
-        //     {"1","|", "2", "|", "3"},
-        //     {"-", "-", "-", "-", "-"},
-        //     {"4","|", "5", "|", "6"},
-        //     {"-", "-", "-", "-", "-"},
-        //     {"7","|", "8", "|", "9"}
-        // };
-
-
     public:
         /// @brief This will loop through the board array and display each item. Each time it gets to 
         /// @brief the end on one of the arrays in the array will start a new line
