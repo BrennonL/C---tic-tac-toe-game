@@ -2,6 +2,22 @@
 #include "board.h"
 using namespace std;
 
+void DoUpdatesPointer(char player, char choice, Board* The_board, void (Board::*operation)(char, char)){
+    (The_board->*operation)(choice, player);
+};
+
+
+/// @brief This will display the board using the CreateBoard() from board.h
+/// @param The_board 
+/// @param operation 
+void DoOutputsPointer(Board* The_board, void (Board::*operation)()){
+    (The_board->*operation)();
+};
+
+
+
+
+
 /// @brief This function will ask the user what area they want to pick from
 /// @param player 
 /// @return choice variable
@@ -62,13 +78,16 @@ int main(){
     Board The_board;
 
     Board * The_board01 = new Board();
-    The_board.CreateBoard();
+    //The_board.CreateBoard();
+    The_board01->CreateBoard();
 
     char player = 'x';
     do{
         char choice = GetInputs(player);
-        DoUpdates(player, choice, The_board, Board::ChangeValue);
-        DoOutputs(The_board, Board::CreateBoard);
+        //DoUpdates(player, choice, The_board, Board::ChangeValue);
+        //DoOutputs(The_board, Board::CreateBoard);
+        DoUpdatesPointer(player, choice, The_board01, Board::ChangeValue);
+        DoOutputsPointer(The_board01, Board::CreateBoard);
 
         // This allows the user to quit during the game if they want to
         if(choice == 'q'){
@@ -82,12 +101,13 @@ int main(){
         else{
             player = 'x';
         }
-        win = The_board.DetermineWinner();        
+        //win = The_board.DetermineWinner();        
+        win = The_board01->DetermineWinner();
     }while(win == false);
 
     delete The_board01;
 
-    cout << "Congratulations player" << player << "! You won!" << endl;
+    cout << "Congratulations! You won!" << endl;
     return 0;
 };
 
