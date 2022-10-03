@@ -34,7 +34,6 @@ char GetInputs(char player){
 };
 
 
-
 /// @brief This will update the board list with either the char 'x' or 'o' using the ChangeValue() function 
 /// @brief from the board.h 
 /// @param player 
@@ -44,7 +43,6 @@ char GetInputs(char player){
 void DoUpdates(char player, char choice, Board& The_board, void (Board::*operation)(char, char)){
     (The_board.*operation)(choice, player);
 };
-
 
 
 /// @brief This will display the board using the CreateBoard() from board.h
@@ -84,7 +82,6 @@ int main(){
         }
         win = The_board.DetermineWinner();        
     }while(win == false);
-
 
     cout << "Congratulations player" << player << "! You won!" << endl;
     return 0;
