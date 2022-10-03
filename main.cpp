@@ -7,8 +7,29 @@ using namespace std;
 /// @return choice variable
 char GetInputs(char player){
     char choice;
-    cout << "It is " << player << "'s turn, what do you pick?" << endl; 
-    cin >> choice;
+    bool correctValue = true;
+    do{
+
+        // Here the program will ask the user for their choice where they want to mark their symbol and assigns that answer to the
+        //variable choice.
+        cout << "It is " << player << "'s turn, what do you pick?" << endl; 
+        cin >> choice;
+
+        // These if and else statements verrify that the user put in a number rather than a character or letter. If they didn't put a 
+        //number then it will run through the loop again asking the user for a number.
+        if(choice == '1' || choice == '2' || choice == '3' || choice == '4' || choice == '5' || choice == '6' || choice == '7' ||
+        choice == '8' || choice == '9'){
+            correctValue = true;
+        }
+        else{
+            correctValue = false;
+        }
+        if (correctValue == false){
+            cout << choice << "is not a correct value. ";
+        }
+
+    }while(correctValue = false);
+
     return choice;
 };
 
